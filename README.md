@@ -1,335 +1,238 @@
 <div align="center">
 
-# SHAWKI ALADDIN
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=16&duration=2500&pause=900&color=00F5D4&center=true&vCenter=true&width=700&lines=%24+whoami;%3E+SHAWKI+ALADDIN;%24+cat+%2Fetc%2Finterests;%3E+AI+%7C+SECURITY+%7C+SYSTEMS+%7C+BLOCKCHAIN+%7C+SPACE" />
 
-### AI · SECURITY · SYSTEMS · BLOCKCHAIN · SPACE
+<br/>
 
-`BUILD` `BREAK` `UNDERSTAND` `REPEAT`
+```text
+╭──────────────────────────────────────────────────────────────╮
+│                                                              │
+│   SHAWKI://LAB                                               │
+│                                                              │
+│   engineer     researcher     breaker     builder             │
+│                                                              │
+│   STATUS  ● ONLINE                                           │
+│                                                              │
+╰──────────────────────────────────────────────────────────────╯
+```
+
+<sub>
+AI SYSTEMS · OFFENSIVE SECURITY · DISTRIBUTED SYSTEMS · PROTOCOLS
+</sub>
 
 </div>
 
-<br>
+<br/>
 
-```text
-┌────────────────────────────────────────────────────────────────────────────┐
-│                                                                            │
-│   SHAWKI / LAB                                                NODE 01      │
-│                                                                            │
-│        AI        SECURITY        SYSTEMS        BLOCKCHAIN        SPACE     │
-│                                                                            │
-│                ○──────────────○                                            │
-│               ╱                ╲                                           │
-│       ○──────○                  ○────────○                                 │
-│               ╲                ╱                                           │
-│                ○──────────────○                                            │
-│                                                                            │
-│                  experiments / research / writeups                          │
-│                                                                            │
-└────────────────────────────────────────────────────────────────────────────┘
+## `> whoami`
+
+```bash
+shawki@lab:~$ ./profile
+
+name        = "Shawki Aladdin"
+mode        = "research"
+interface   = "code"
+objective   = "understand the system"
+
+interests = [
+    "artificial intelligence",
+    "cybersecurity",
+    "distributed systems",
+    "blockchain",
+    "space communications"
+]
 ```
 
-## / ABOUT
+I build things to understand them.
 
-Software engineer exploring the intersection of artificial intelligence, cybersecurity, distributed systems, infrastructure, blockchain and space communications.
+Then I break them to understand them better.
 
-I build systems, break them to understand how they fail, then document what I learn.
+---
+
+## `> /dev/current`
 
 ```text
-BUILD      → understand how it works
-BREAK      → understand where it fails
-RESEARCH   → understand why
-REBUILD    → make it better
+┌─ ACTIVE PROCESSES ────────────────────────────────────────────┐
+│                                                              │
+│  [01] autonomous AI agents                         RUNNING    │
+│  [02] web + API security research                  RUNNING    │
+│  [03] CTF challenges                               RUNNING    │
+│  [04] local inference + LLM systems                RUNNING    │
+│  [05] satellite protocols + SDR                    LEARNING   │
+│  [06] blockchain protocol experiments              ACTIVE     │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## / CURRENTLY
+## `> ls ./research`
 
 ```text
-researching    autonomous AI systems
-building       AI agents and developer tools
-breaking       web applications and APIs
-exploring      blockchain protocols
-studying       satellite communications and SDR
-writing        CTF writeups and technical notes
+./ai
+├── agents
+├── tool-use
+├── rag
+├── local-inference
+├── context-systems
+└── llm-efficiency
+
+
+./security
+├── web
+├── api
+├── authorization
+├── business-logic
+├── infrastructure
+└── ctf
+
+
+./systems
+├── linux
+├── containers
+├── orchestration
+├── databases
+├── distributed-systems
+└── high-availability
+
+
+./protocols
+├── blockchain
+├── networking
+├── ccsds
+├── telemetry
+└── satellite-comms
 ```
 
 ---
 
-## / LAB
+## `> cat stack.conf`
 
-### AI
+<div align="center">
 
-```text
-AI agents
-LLM systems
-RAG
-tool use
-local inference
-model routing
-MCP
-automation
-```
+![Python](https://img.shields.io/badge/PYTHON-0d1117?style=for-the-badge&logo=python&logoColor=00f5d4)
+![TypeScript](https://img.shields.io/badge/TYPESCRIPT-0d1117?style=for-the-badge&logo=typescript&logoColor=00f5d4)
+![Node.js](https://img.shields.io/badge/NODE.JS-0d1117?style=for-the-badge&logo=nodedotjs&logoColor=00f5d4)
+![PostgreSQL](https://img.shields.io/badge/POSTGRESQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=00f5d4)
 
-### SECURITY
+![Linux](https://img.shields.io/badge/LINUX-0d1117?style=for-the-badge&logo=linux&logoColor=bd93f9)
+![Docker](https://img.shields.io/badge/DOCKER-0d1117?style=for-the-badge&logo=docker&logoColor=bd93f9)
+![Kubernetes](https://img.shields.io/badge/KUBERNETES-0d1117?style=for-the-badge&logo=kubernetes&logoColor=bd93f9)
+![AWS](https://img.shields.io/badge/AWS-0d1117?style=for-the-badge&logo=amazonwebservices&logoColor=bd93f9)
 
-```text
-web security
-API security
-authentication
-authorization
-IDOR / BOLA
-business logic
-infrastructure security
-CTFs
-vulnerability research
-```
+![Burp Suite](https://img.shields.io/badge/BURP_SUITE-0d1117?style=for-the-badge&logo=burpsuite&logoColor=ff5470)
+![Kali Linux](https://img.shields.io/badge/KALI-0d1117?style=for-the-badge&logo=kalilinux&logoColor=ff5470)
+![Git](https://img.shields.io/badge/GIT-0d1117?style=for-the-badge&logo=git&logoColor=ff5470)
 
-### SYSTEMS
+</div>
+
+---
+
+## `> cat philosophy.txt`
 
 ```text
-Linux
-Docker
-Kubernetes
-PostgreSQL
-Nginx
-distributed systems
-CI/CD
-high availability
-backend architecture
-```
-
-### BLOCKCHAIN
-
-```text
-Ethereum
-smart contracts
-protocols
-distributed ledgers
-decentralized systems
-```
-
-### SPACE
-
-```text
-CCSDS
-SDR
-telemetry
-space packets
-satellite protocols
-communications
+01  understand the protocol
+02  question the abstraction
+03  automate the boring parts
+04  break assumptions
+05  study failure modes
+06  build the smallest thing that works
+07  document what survives
 ```
 
 ---
 
-## / STACK
+## `> find ./ -type f -interesting`
 
 ```text
-LANGUAGES
-
-Python
-JavaScript
-TypeScript
-SQL
-Bash
-Dart
-
-
-BACKEND
-
-Node.js
-PostgreSQL
-REST APIs
-WebSockets
-Redis
-Odoo
-
-
 AI
-
-LLMs
-RAG
-Agents
-MCP
-Ollama
-Local Models
-Tool Calling
-
-
-INFRASTRUCTURE
-
-Linux
-Docker
-Kubernetes
-Nginx
-GitLab CI/CD
-AWS
+│
+├─ autonomous agents
+├─ local inference
+├─ agent memory
+├─ tool orchestration
+└─ model routing
 
 
 SECURITY
+│
+├─ web exploitation
+├─ API security
+├─ broken access control
+├─ business logic
+└─ vulnerability research
 
-Burp Suite
-Kali Linux
-Web Security
-API Security
-CTF
-OSINT
+
+SYSTEMS
+│
+├─ distributed architecture
+├─ infrastructure
+├─ Linux internals
+├─ containers
+└─ databases
 
 
-WEB / MOBILE
+SPACE
+│
+├─ CCSDS
+├─ SDR
+├─ telemetry
+└─ satellite protocols
 
-React
-Next.js
-Flutter
+
+BLOCKCHAIN
+│
+├─ smart contracts
+├─ protocol design
+└─ decentralized systems
 ```
 
 ---
 
-## / RESEARCH
+## `> ./writing`
 
-```text
-01 / ARTIFICIAL INTELLIGENCE
+CTF writeups, AI experiments, security research, protocols and engineering notes.
 
-autonomous agents
-tool-using LLMs
-efficient inference
-local models
-context systems
-memory architectures
+<div align="center">
 
+### [`shawkialaddin.com`](https://shawkialaddin.com)
 
-02 / CYBERSECURITY
-
-authorization
-business logic vulnerabilities
-API security
-web vulnerabilities
-agent security
-AI security
-
-
-03 / DISTRIBUTED SYSTEMS
-
-fault tolerance
-container orchestration
-database architecture
-high availability
-infrastructure automation
-
-
-04 / BLOCKCHAIN
-
-smart contracts
-distributed consensus
-decentralized protocols
-protocol security
-
-
-05 / SPACE SYSTEMS
-
-CCSDS
-telemetry
-SDR
-satellite communications
-space networking
-```
+</div>
 
 ---
 
-## / REPOSITORIES
+## `> git log --oneline --all`
 
-My repositories are mainly experiments, research, tools and technical writeups.
+<div align="center">
 
-```text
-lab-*          experiments and prototypes
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=shawkialaddin&show_icons=true&hide_border=true&bg_color=0d1117&title_color=00f5d4&text_color=8b949e&icon_color=bd93f9&hide_rank=true" />
 
-research-*     research notes and investigations
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shawkialaddin&layout=compact&hide_border=true&bg_color=0d1117&title_color=00f5d4&text_color=8b949e" />
 
-writeups-*     CTF and security writeups
-
-tools-*        utilities and developer tools
-
-protocol-*     protocol implementations and experiments
-```
+</div>
 
 ---
-
-## / WRITING
-
-I write about what I am actively researching and experimenting with.
-
-```text
-CTF writeups
-cybersecurity
-web security
-API security
-AI experiments
-LLM agents
-local inference
-infrastructure
-blockchain
-satellite communications
-protocol research
-```
-
-### [shawkialaddin.com](https://shawkialaddin.com)
-
----
-
-## / PRINCIPLES
-
-```text
-01   build before abstracting
-
-02   understand the protocol
-
-03   automate repetitive work
-
-04   question assumptions
-
-05   understand failure modes
-
-06   document what actually worked
-
-07   simple systems beat unnecessary complexity
-```
-
----
-
-## / STATUS
-
-```text
-SYSTEM      ONLINE
-
-MODE        RESEARCH
-
-FOCUS       AI / SECURITY / SYSTEMS
-
-LOCATION    INTERNET
-
-UPTIME      ███████████████████░
-```
-
----
-
-## / FIND ME
-
-```text
-WEB      shawkialaddin.com
-
-GITHUB   github.com/shawkialaddin
-
-ORCID    0009-0000-0053-0608
-```
-
-<br>
 
 <div align="center">
 
 ```text
-BUILD / BREAK / UNDERSTAND / REPEAT
+┌──────────────────────────────────────────────────────────────┐
+│                                                              │
+│   root@shawki:~#                                             │
+│                                                              │
+│   BUILD. BREAK. UNDERSTAND.                                  │
+│                                                              │
+│   █                                                          │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-<sub>SHAWKI ALADDIN · LAB</sub>
+<sub>
+<a href="https://shawkialaddin.com">WEB</a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://github.com/shawkialaddin">GITHUB</a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://orcid.org/0009-0000-0053-0608">ORCID</a>
+</sub>
 
 </div>
