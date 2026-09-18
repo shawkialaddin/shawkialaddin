@@ -10,9 +10,8 @@
 
 <br><br>
 
-```text
-   SYSTEM://ONLINE<br/>IDENTITY://SHAWKI_ALADDIN<br/>MODE://RESEARCH
-```
+
+SYSTEM://ONLINE<br/>IDENTITY://SHAWKI_ALADDIN<br/>MODE://RESEARCH
 
 </div>
 
