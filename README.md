@@ -1,238 +1,303 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=16&duration=2500&pause=900&color=00F5D4&center=true&vCenter=true&width=700&lines=%24+whoami;%3E+SHAWKI+ALADDIN;%24+cat+%2Fetc%2Finterests;%3E+AI+%7C+SECURITY+%7C+SYSTEMS+%7C+BLOCKCHAIN+%7C+SPACE" />
+# `SHAWKI//ALADDIN`
 
-<br/>
+### `AI` · `SECURITY` · `SYSTEMS` · `PROTOCOLS`
+
+<code>RESEARCHER</code>
+<code>BUILDER</code>
+<code>BREAKER</code>
+
+<br><br>
 
 ```text
-╭──────────────────────────────────────────────────────────────╮
-│                                                              │
-│   SHAWKI://LAB                                               │
-│                                                              │
- │   engineer     researcher     breaker     builder             │
-│                                                              │
-│   STATUS  ● ONLINE                                           │
-│                                                              │
-╰──────────────────────────────────────────────────────────────╯
+SYSTEM://ONLINE
+IDENTITY://SHAWKI_ALADDIN
+MODE://RESEARCH
 ```
-
-<sub>
-AI SYSTEMS · OFFENSIVE SECURITY · DISTRIBUTED SYSTEMS · PROTOCOLS
-</sub>
 
 </div>
 
-<br/>
+---
 
-## `> whoami`
+## `00 // IDENTITY`
 
 ```bash
-shawki@lab:~$ ./profile
+root@shawki:~# whoami
 
-name        = "Shawki Aladdin"
-mode        = "research"
-interface   = "code"
-objective   = "understand the system"
+Shawki Aladdin
 
-interests = [
-    "artificial intelligence",
-    "cybersecurity",
-    "distributed systems",
-    "blockchain",
-    "space communications"
-]
+root@shawki:~# cat /etc/focus
+
+artificial_intelligence
+cybersecurity
+distributed_systems
+blockchain
+space_communications
+
+root@shawki:~# _
 ```
 
-I build things to understand them.
+I build systems to understand how they work.
 
-Then I break them to understand them better.
+I break systems to understand where they fail.
+
+I document the interesting parts.
 
 ---
 
-## `> /dev/current`
+## `01 // ACTIVE_PROCESSES`
 
 ```text
-┌─ ACTIVE PROCESSES ────────────────────────────────────────────┐
-│                                                              │
-│  [01] autonomous AI agents                         RUNNING    │
-│  [02] web + API security research                  RUNNING    │
-│  [03] CTF challenges                               RUNNING    │
-│  [04] local inference + LLM systems                RUNNING    │
-│  [05] satellite protocols + SDR                    LEARNING   │
-│  [06] blockchain protocol experiments              ACTIVE     │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
-```
+PID    PROCESS                                      STATE
 
----
-
-## `> ls ./research`
-
-```text
-./ai
-├── agents
-├── tool-use
-├── rag
-├── local-inference
-├── context-systems
-└── llm-efficiency
-
-
-./security
-├── web
-├── api
-├── authorization
-├── business-logic
-├── infrastructure
-└── ctf
-
-
-./systems
-├── linux
-├── containers
-├── orchestration
-├── databases
-├── distributed-systems
-└── high-availability
-
-
-./protocols
-├── blockchain
-├── networking
-├── ccsds
-├── telemetry
-└── satellite-comms
+001    autonomous_ai_agents                        RUNNING
+002    web_api_security                            RUNNING
+003    ctf_research                                RUNNING
+004    local_llm_inference                         RUNNING
+005    distributed_infrastructure                  RUNNING
+006    blockchain_protocols                        ACTIVE
+007    satellite_comms_sdr                         LEARNING
 ```
 
 ---
 
-## `> cat stack.conf`
-
-<div align="center">
-
-![Python](https://img.shields.io/badge/PYTHON-0d1117?style=for-the-badge&logo=python&logoColor=00f5d4)
-![TypeScript](https://img.shields.io/badge/TYPESCRIPT-0d1117?style=for-the-badge&logo=typescript&logoColor=00f5d4)
-![Node.js](https://img.shields.io/badge/NODE.JS-0d1117?style=for-the-badge&logo=nodedotjs&logoColor=00f5d4)
-![PostgreSQL](https://img.shields.io/badge/POSTGRESQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=00f5d4)
-
-![Linux](https://img.shields.io/badge/LINUX-0d1117?style=for-the-badge&logo=linux&logoColor=bd93f9)
-![Docker](https://img.shields.io/badge/DOCKER-0d1117?style=for-the-badge&logo=docker&logoColor=bd93f9)
-![Kubernetes](https://img.shields.io/badge/KUBERNETES-0d1117?style=for-the-badge&logo=kubernetes&logoColor=bd93f9)
-![AWS](https://img.shields.io/badge/AWS-0d1117?style=for-the-badge&logo=amazonwebservices&logoColor=bd93f9)
-
-![Burp Suite](https://img.shields.io/badge/BURP_SUITE-0d1117?style=for-the-badge&logo=burpsuite&logoColor=ff5470)
-![Kali Linux](https://img.shields.io/badge/KALI-0d1117?style=for-the-badge&logo=kalilinux&logoColor=ff5470)
-![Git](https://img.shields.io/badge/GIT-0d1117?style=for-the-badge&logo=git&logoColor=ff5470)
-
-</div>
-
----
-
-## `> cat philosophy.txt`
+## `02 // RESEARCH_TREE`
 
 ```text
-01  understand the protocol
-02  question the abstraction
-03  automate the boring parts
-04  break assumptions
-05  study failure modes
-06  build the smallest thing that works
-07  document what survives
-```
-
----
-
-## `> find ./ -type f -interesting`
-
-```text
-AI
+/home/shawki/research
 │
-├─ autonomous agents
-├─ local inference
-├─ agent memory
-├─ tool orchestration
-└─ model routing
-
-
-SECURITY
+├── ai/
+│   ├── agents
+│   ├── tool-use
+│   ├── rag
+│   ├── local-inference
+│   ├── context
+│   └── model-routing
 │
-├─ web exploitation
-├─ API security
-├─ broken access control
-├─ business logic
-└─ vulnerability research
+├── security/
+│   ├── web
+│   ├── api
+│   ├── authentication
+│   ├── authorization
+│   ├── business-logic
+│   ├── infrastructure
+│   └── ctf
+│
+├── systems/
+│   ├── linux
+│   ├── containers
+│   ├── orchestration
+│   ├── databases
+│   ├── high-availability
+│   └── distributed-systems
+│
+├── blockchain/
+│   ├── smart-contracts
+│   ├── protocol-design
+│   └── decentralized-systems
+│
+└── space/
+    ├── ccsds
+    ├── telemetry
+    ├── sdr
+    ├── space-packets
+    └── satellite-protocols
+```
+
+---
+
+## `03 // TOOLCHAIN`
+
+```text
+LANGUAGES
+────────────────────────────────────────
+Python        TypeScript      JavaScript
+SQL           Bash            Dart
 
 
 SYSTEMS
-│
-├─ distributed architecture
-├─ infrastructure
-├─ Linux internals
-├─ containers
-└─ databases
+────────────────────────────────────────
+Linux         Docker          Kubernetes
+Nginx         PostgreSQL      Redis
+GitLab CI     AWS             REST
 
 
-SPACE
-│
-├─ CCSDS
-├─ SDR
-├─ telemetry
-└─ satellite protocols
+AI
+────────────────────────────────────────
+LLMs          Agents          RAG
+MCP           Ollama          Tool Calling
+Local Models  Model Routing
 
 
-BLOCKCHAIN
-│
-├─ smart contracts
-├─ protocol design
-└─ decentralized systems
+SECURITY
+────────────────────────────────────────
+Burp Suite    Kali Linux      Web Security
+API Security  OSINT           CTF
+Auth Testing  Logic Flaws
+
+
+INTERFACES
+────────────────────────────────────────
+React         Next.js         Flutter
+Node.js       WebSockets      Odoo
 ```
 
 ---
 
-## `> ./writing`
+## `04 // TARGETS`
 
-CTF writeups, AI experiments, security research, protocols and engineering notes.
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### `AI://`
+
+Autonomous agents  
+Local inference  
+LLM efficiency  
+Tool orchestration  
+Context architectures  
+Agent memory  
+
+</td>
+<td width="50%" valign="top">
+
+### `SEC://`
+
+Web exploitation  
+API security  
+Access control  
+Business logic  
+Infrastructure  
+AI security  
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### `SYS://`
+
+Distributed systems  
+High availability  
+Database architecture  
+Containers  
+Infrastructure automation  
+Linux  
+
+</td>
+<td width="50%" valign="top">
+
+### `PROTO://`
+
+Blockchain  
+CCSDS  
+Telemetry  
+Networking  
+Satellite communications  
+SDR  
+
+</td>
+</tr>
+</table>
+
+---
+
+## `05 // REPOSITORY_PROTOCOL`
+
+```text
+lab-*          experimental systems
+research-*     investigations + notes
+writeups-*     CTF + security research
+tools-*        utilities + automation
+protocol-*     protocol experiments
+```
+
+This GitHub is a lab.
+
+Not everything here is polished.
+
+Some repositories are experiments.  
+Some are research.  
+Some exist because I wanted to know what would happen.
+
+---
+
+## `06 // WRITING`
+
+```text
+> CTF writeups
+> vulnerability research
+> AI experiments
+> autonomous agents
+> local inference
+> infrastructure
+> blockchain
+> satellite systems
+> protocol research
+```
 
 <div align="center">
 
 ### [`shawkialaddin.com`](https://shawkialaddin.com)
 
-</div>
-
----
-
-## `> git log --oneline --all`
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=shawkialaddin&show_icons=true&hide_border=true&bg_color=0d1117&title_color=00f5d4&text_color=8b949e&icon_color=bd93f9&hide_rank=true" />
-
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shawkialaddin&layout=compact&hide_border=true&bg_color=0d1117&title_color=00f5d4&text_color=8b949e" />
+`READ://WRITEUPS` · `READ://RESEARCH` · `READ://EXPERIMENTS`
 
 </div>
 
 ---
 
-<div align="center">
+## `07 // OPERATING_PRINCIPLES`
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│                                                              │
-│   root@shawki:~#                                             │
-│                                                              │
-│   BUILD. BREAK. UNDERSTAND.                                  │
-│                                                              │
-│   █                                                          │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
+0x01    understand the protocol
+
+0x02    question the abstraction
+
+0x03    automate repetitive work
+
+0x04    attack assumptions
+
+0x05    study failure modes
+
+0x06    build the smallest thing that works
+
+0x07    document what survives
 ```
 
-<sub>
-<a href="https://shawkialaddin.com">WEB</a>
-&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="https://github.com/shawkialaddin">GITHUB</a>
-&nbsp;&nbsp;·&nbsp;&nbsp;
-<a href="https://orcid.org/0009-0000-0053-0608">ORCID</a>
-</sub>
+---
+
+## `08 // SIGNAL`
+
+```text
+╭──────────────────────────────────────────────────────────────╮
+│                                                              │
+│  SIGNAL       ACTIVE                                         │
+│  NODE         SHAWKI_01                                      │
+│  ACCESS       PUBLIC                                         │
+│  MODE         RESEARCH                                       │
+│                                                              │
+│  BUILD        ██████████████████████░░                       │
+│  BREAK        ███████████████████░░░░░                       │
+│  LEARN        ████████████████████████                       │
+│                                                              │
+╰──────────────────────────────────────────────────────────────╯
+```
+
+<div align="center">
+
+[`WEB`](https://shawkialaddin.com)
+&nbsp;&nbsp; `/` &nbsp;&nbsp;
+[`GITHUB`](https://github.com/shawkialaddin)
+&nbsp;&nbsp; `/` &nbsp;&nbsp;
+[`ORCID`](https://orcid.org/0009-0000-0053-0608)
+
+<br><br>
+
+### `BUILD_ BREAK_ UNDERSTAND_`
+
+<sub>SHAWKI_ALADDIN // NODE_01</sub>
 
 </div>
