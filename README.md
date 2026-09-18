@@ -9,7 +9,7 @@
 │                                                              │
 │   SHAWKI://LAB                                               │
 │                                                              │
-│   engineer     researcher     breaker     builder             │
+ │   engineer     researcher     breaker     builder             │
 │                                                              │
 │   STATUS  ● ONLINE                                           │
 │                                                              │
