@@ -12,19 +12,27 @@ const rand = seed => { const n = Math.sin(seed*127.1+311.7)*43758.5453; return n
 
 class Surface {
   constructor(canvas) { this.canvas=canvas; this.ctx=canvas.getContext('2d'); this.width=0; this.height=0; this.visible=true; new ResizeObserver(()=>this.resize()).observe(canvas); this.resize(); }
-  resize(){ const rect=this.canvas.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2); this.width=rect.width; this.height=rect.height; this.canvas.width=Math.round(rect.width*dpr); this.canvas.height=Math.round(rect.height*dpr); this.ctx.setTransform(dpr,0,0,dpr,0,0); this.ctx.imageSmoothingEnabled=false; }
+  resize(){ const rect=this.canvas.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2); this.dpr=dpr; this.width=rect.width; this.height=rect.height; this.canvas.width=Math.round(rect.width*dpr); this.canvas.height=Math.round(rect.height*dpr); this.ctx.setTransform(dpr,0,0,dpr,0,0); this.ctx.imageSmoothingEnabled=false; }
   clear(){this.ctx.clearRect(0,0,this.width,this.height);}
 }
 const portrait=new Surface($('#portrait')), field=new Surface($('#field')), satellite=new Surface($('#satellite')), research=new Surface($('#research-satellite'));
 const surfaces=[portrait,field,satellite,research];
 if ('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const s=surfaces.find(s=>s.canvas===e.target);if(s)s.visible=e.isIntersecting;}),{rootMargin:'100px'}); surfaces.forEach(s=>observer.observe(s.canvas)); }
-const pixels=window.SHAWKI_PIXELS.map((p,i)=>({x:p[0],y:p[1],gray:p[2],delay:((79-p[0])+p[1])/158*.38+rand(i)*.13,dx:20+rand(i+4)*130,dy:-35-rand(i+9)*90}));
+const portraitGrid=window.SHAWKI_GRID || 80;
+const pixels=window.SHAWKI_PIXELS.map((p,i)=>({x:p[0],y:p[1],gray:p[2],opacity:p[3]??1,delay:((portraitGrid-1-p[0])+p[1])/(2*(portraitGrid-1))*.38+rand(i)*.13,dx:16+rand(i+4)*95,dy:-22-rand(i+9)*70}));
 function drawPortrait(time){
  const {ctx,width:w,height:h}=portrait;portrait.clear();
- const size=Math.min(w*.87,h*.9,340),left=(w-size)/2,top=(h-size)/2,cell=size/80;
- const t=reduced?0:time%15; let amount=0;
- if(t>4&&t<8)amount=(t-4)/4;else if(t>=8&&t<=9.5)amount=1;else if(t>9.5&&t<14)amount=1-(t-9.5)/4.5;
- for(const p of pixels){const n=clamp((amount-p.delay)/(1-p.delay)),e=smooth(n),alpha=1-smooth((n-.3)/.7);if(alpha<.005)continue;ctx.globalAlpha=alpha;ctx.fillStyle=`rgb(${p.gray},${p.gray},${Math.max(0,p.gray-3)})`;ctx.fillRect(left+p.x*cell+e*p.dx,top+p.y*cell+e*(p.dy+Math.sin(n*6+p.x)*12),cell*(1-e*.5)+.2,cell*(1-e*.5)+.2);}
+ const size=Math.min(w*.9,h*.96,360),left=(w-size)/2,top=(h-size)/2,cell=size/portraitGrid;
+ const t=reduced?0:time%17; let amount=0;
+ if(t>6&&t<10)amount=(t-6)/4;else if(t>=10&&t<=11)amount=1;else if(t>11&&t<16)amount=1-(t-11)/5;
+ for(const p of pixels){
+  const n=clamp((amount-p.delay)/(1-p.delay)),e=smooth(n),alpha=p.opacity*(1-smooth((n-.3)/.7));
+  if(alpha<.005)continue;
+  ctx.globalAlpha=alpha;ctx.fillStyle=`rgb(${Math.min(255,p.gray+3)},${Math.min(255,p.gray+2)},${p.gray})`;
+  const dpr=portrait.dpr||1,x=left+p.x*cell+e*p.dx,y=top+p.y*cell+e*(p.dy+Math.sin(n*6+p.x)*9),s=cell*(1-e*.45);
+  const x0=Math.round(x*dpr)/dpr,y0=Math.round(y*dpr)/dpr;
+  ctx.fillRect(x0,y0,Math.round((x+s)*dpr)/dpr-x0,Math.round((y+s)*dpr)/dpr-y0);
+ }
  ctx.globalAlpha=1;
 }
 

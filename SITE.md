@@ -5,7 +5,8 @@ A small dependency-free HTML/CSS/JavaScript page that accompanies the GitHub pro
 ## Files
 
 - `site/`: deployable website.
-- `assets/profile-header.svg`: automatically animated GitHub README header.
+- `assets/profile-*.svg`: designed GitHub README sections, including the automatic portrait animation.
+- `scripts/build_profile_assets.py`: rebuilds the designed README sections from the checked-in portrait and activity data.
 - `scripts/refresh_activity.py`: refreshes the last three years of the public GitHub contribution calendar without a token.
 - `.github/workflows/pages.yml`: verifies, refreshes, and deploys the site on pushes, manually, and daily.
 
@@ -32,6 +33,8 @@ No custom domain has been configured. The previously linked `shawkialaddin.com` 
 The checked-in snapshot is real public GitHub contribution data, not sample activity. The daily deployment refreshes it into the deployed artifact without creating automated commits. It contains only dates, counts, and intensity levels from the public calendar, not private repository names or details. Contributions include more than commits. The calendar links each date to the corresponding GitHub profile overview.
 
 If the public GitHub markup changes or fetching fails, the workflow keeps the last valid snapshot and emits a warning. The page shows its snapshot date. If the JSON cannot be loaded, the page explicitly says so and links to GitHub instead of inventing activity.
+
+The README contribution board is a dated snapshot from the latest asset build. The interactive page refreshes at deployment. To regenerate the README artwork after a data update, run `python3 scripts/build_profile_assets.py` and commit the generated SVG files.
 
 ## Motion and accessibility
 

@@ -1,28 +1,13 @@
-<picture>
-  <img src="assets/profile-header.svg" width="100%" alt="Shawki Aladdin. Software engineer and founder. CTO at Digital Harbor. Founder of gitroots. AI, infrastructure, distributed systems and security." />
-</picture>
+<div align="center">
+<a href="https://shawkialaddin.github.io/shawkialaddin/"><img src="assets/profile-header.svg" width="100%" alt="Shawki Aladdin. Software engineer and founder. CTO at Digital Harbor. Founder of gitroots. Egyptian, based in Riyadh. Open the personal page." /></a>
+<img src="assets/profile-about.svg" width="100%" alt="About: I build backend systems, developer tools, and infrastructure. My interests include applied AI, cybersecurity, and space systems." />
+<img src="assets/profile-projects.svg" width="100%" alt="Projects: products I am working on." />
+<a href="https://gitroots.com"><img src="assets/profile-gitroots.svg" width="100%" alt="gitroots: Code governance and access controls for engineering teams. Visit gitroots.com." /></a>
+<a href="https://cryptorader.io"><img src="assets/profile-crypto.svg" width="100%" alt="CryptoRadar: A crypto platform in development. Visit cryptorader.io." /></a>
+<a href="https://github.com/shawkialaddin/satellite-repair-lab"><img src="assets/profile-research.svg" width="100%" alt="Ongoing research: offline repair for satellite software. An experimental testbed for independent patch acceptance using synthetic fixtures. AI-generated repair and spacecraft integration remain unevaluated. Open Satellite Repair Lab." /></a>
+<a href="https://github.com/shawkialaddin?tab=overview"><img src="assets/profile-activity.svg" width="100%" alt="Real public GitHub contribution snapshot. Open the GitHub profile to see the current calendar." /></a>
+<a href="https://shawkialaddin.github.io/shawkialaddin/#experiments"><img src="assets/profile-experiments.svg" width="100%" alt="Pixel field and satellite model. Open the personal page for interactive experiments." /></a>
+<a href="https://shawkialaddin.github.io/shawkialaddin/"><img src="assets/profile-footer.svg" width="100%" alt="Applied AI, cybersecurity, distributed systems, space technology. Shawki Aladdin, 2026. Personal page." /></a>
+</div>
 
-### About
-
-I build backend systems, developer tools, and infrastructure. My interests include applied AI, cybersecurity, and space systems.
-
-### Projects
-
-| Project | Focus |
-| :--- | :--- |
-| [gitroots](https://gitroots.com) | Code governance and access controls for engineering teams. |
-| [CryptoRadar](https://cryptorader.io) | A crypto platform in development. |
-
-### Research
-
-[**Satellite Repair Lab**](https://github.com/shawkialaddin/satellite-repair-lab) is an ongoing experimental testbed for offline vulnerability repair and independent patch acceptance in satellite-inspired applications.
-
-The current prototype evaluates handwritten candidates against synthetic fixtures. AI-generated repair and spacecraft integration have not been evaluated. The longer-term research direction includes autonomous repair agents.
-
-### Interests
-
-Applied AI · Cybersecurity · Distributed systems · Space technology
-
-[Personal page](https://shawkialaddin.github.io/shawkialaddin/) · [Research repository](https://github.com/shawkialaddin/satellite-repair-lab) · [ORCID](https://orcid.org/0009-0000-0053-0608)
-
-<sub>The personal page contains the automatic pixel portrait, public GitHub contribution calendar, and interactive experiments. Its [source and setup](SITE.md) live in this repository.</sub>
+<sub>[Personal page](https://shawkialaddin.github.io/shawkialaddin/) · [Research](https://github.com/shawkialaddin/satellite-repair-lab) · [ORCID](https://orcid.org/0009-0000-0053-0608) · [Source](SITE.md)</sub>
