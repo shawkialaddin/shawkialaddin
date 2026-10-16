@@ -19,17 +19,8 @@ const field=new Surface($('#field')), satellite=new Surface($('#satellite')), re
 const surfaces=[field,satellite,research];
 if ('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const s=surfaces.find(s=>s.canvas===e.target);if(s)s.visible=e.isIntersecting;}),{rootMargin:'100px'}); surfaces.forEach(s=>observer.observe(s.canvas)); }
 
-// Perspective projection, with depth-sorted body faces and fine solar-panel grids.
-function drawSatellite(surface,angle,zoom=1,tilt=.35){
- const {ctx,width:w,height:h}=surface;surface.clear();const size=Math.min(w*.31,h*.37)*zoom,cx=w*.5,cy=h*.5;
- function project([x,y,z]){const xx=x*Math.cos(angle)-z*Math.sin(angle),zz=x*Math.sin(angle)+z*Math.cos(angle),yy=y*Math.cos(tilt)-zz*Math.sin(tilt),depth=y*Math.sin(tilt)+zz*Math.cos(tilt),f=5/(5+depth);return[cx+xx*size*f,cy+yy*size*f,depth];}
- function line(points,stroke='#718079',fill=null){ctx.beginPath();points.forEach((p,i)=>{const q=project(p);if(i)ctx.lineTo(q[0],q[1]);else ctx.moveTo(q[0],q[1]);});if(fill){ctx.closePath();ctx.fillStyle=fill;ctx.fill();}ctx.strokeStyle=stroke;ctx.lineWidth=.7;ctx.stroke();}
- ctx.setLineDash([1,6]);line([[-1.8,0,0],[1.8,0,0]],'#404b46');line([[0,-1.25,0],[0,1.25,0]],'#404b46');line([[0,0,-1.5],[0,0,1.5]],'#404b46');ctx.setLineDash([]);
- const vertices=[[-.3,-.35,-.3],[.3,-.35,-.3],[.3,.35,-.3],[-.3,.35,-.3],[-.3,-.35,.3],[.3,-.35,.3],[.3,.35,.3],[-.3,.35,.3]],faces=[[0,1,2,3],[4,5,6,7],[0,1,5,4],[2,3,7,6],[1,2,6,5],[0,3,7,4]];
- faces.map((f,i)=>({f,i,z:f.reduce((s,v)=>s+project(vertices[v])[2],0)})).sort((a,b)=>b.z-a.z).forEach(({f,i})=>line(f.map(v=>vertices[v]),'#87968b',['#1c2320','#29332e','#242c28','#151b18','#202923','#1d2420'][i]));
- for(const side of [-1,1]){line([[side*.35,-.38,0],[side*1.45,-.38,0],[side*1.45,.38,0],[side*.35,.38,0],[side*.35,-.38,0]],'#849187','#141b17');for(let i=1;i<6;i++)line([[side*(.35+i*1.1/6),-.38,0],[side*(.35+i*1.1/6),.38,0]],'#4f5c53');for(let i=1;i<4;i++)line([[side*.35,-.38+i*.19,0],[side*1.45,-.38+i*.19,0]],'#4f5c53');}
- line([[0,-.35,0],[0,-.95,0]],'#a1afa5');line([[-.22,-.83,0],[0,-.65,0],[.22,-.83,0]],'#a1afa5');
-}
+// Use the same shaded 3D geometry as the animated GitHub profile exports.
+function drawSatellite(surface,angle,zoom=1,tilt=.4){Satellite3D.render(surface.ctx,surface.width,surface.height,angle,zoom,tilt);}
 let rotation=Number($('#rotation').value)*Math.PI/180,zoom=1,tilt=.35,drag=null;
 $('#rotation').addEventListener('input',e=>{rotation=Number(e.target.value)*Math.PI/180;});
 $('#zoom').addEventListener('input',e=>{zoom=Number(e.target.value)/100;});
@@ -45,7 +36,7 @@ field.canvas.addEventListener('pointerleave',()=>{pointer=null;});field.canvas.a
 function drawField(time,dt){field.clear();const {ctx,width:w,height:h}=field;for(const [i,d] of dots.entries()){const tx=d.homeX*w,ty=d.homeY*h;let x=d.x*w,y=d.y*h;if(!reduced){d.vx+=(tx-x)*.0008*dt;d.vy+=(ty-y)*.0008*dt;d.vx+=Math.sin(time*.3+i)*.003*dt;d.vy+=Math.cos(time*.3+i)*.003*dt;if(pointer){const dx=x-pointer.x,dy=y-pointer.y,distance=Math.hypot(dx,dy);if(distance<75){const force=(75-distance)*.003*dt;d.vx+=dx/Math.max(1,distance)*force;d.vy+=dy/Math.max(1,distance)*force;}}d.vx*=Math.pow(.94,dt);d.vy*=Math.pow(.94,dt);x=clamp(x+d.vx*dt,0,w);y=clamp(y+d.vy*dt,0,h);d.x=x/Math.max(w,1);d.y=y/Math.max(h,1);}ctx.fillStyle=`rgba(172,203,176,${d.opacity})`;ctx.fillRect(reduced?tx:x,reduced?ty:y,d.size,d.size);}}
 let elapsed=0,previous=0;
 document.addEventListener('visibilitychange',()=>{previous=0;});
-function frame(now){const dt=previous?Math.min((now-previous)/1000,.04):0;previous=now;if(!document.hidden){if(!reduced)elapsed+=dt;if(research.visible)drawSatellite(research,reduced ? .6 : elapsed*.11+.6,.92,.4);if(!reduced&&!drag){rotation=((rotation+dt*.12+Math.PI)%(Math.PI*2))-Math.PI;$('#rotation').value=rotation*180/Math.PI;}if(satellite.visible)drawSatellite(satellite,rotation,zoom,tilt);if(field.visible)drawField(elapsed,dt*60);}requestAnimationFrame(frame);}
+function frame(now){const dt=previous?Math.min((now-previous)/1000,.04):0;previous=now;if(!document.hidden){if(!reduced)elapsed+=dt;if(research.visible)drawSatellite(research,reduced ? .6 : elapsed*.35+.6,.92,.4);if(!reduced&&!drag){rotation=((rotation+dt*.35+Math.PI)%(Math.PI*2))-Math.PI;$('#rotation').value=rotation*180/Math.PI;}if(satellite.visible)drawSatellite(satellite,rotation,zoom,tilt);if(field.visible)drawField(elapsed,dt*60);}requestAnimationFrame(frame);}
 requestAnimationFrame(frame);
 
 function dayText(day){return new Date(day.date+'T12:00:00Z').toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'});}

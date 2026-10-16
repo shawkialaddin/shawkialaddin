@@ -30,6 +30,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           node --check site/app.js
+          node --check site/satellite.js
           node --check site/portrait.js
           node --test tests/calendar.test.cjs
       - uses: actions/upload-pages-artifact@v3

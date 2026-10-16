@@ -53,3 +53,5 @@ The research description reflects the current Satellite Repair Lab README. It de
 ## Approved contribution portrait
 
 `site/portrait-loop.gif` is the original approved 96-frame, 640×640 animation. The page shows it directly, with a still frame when reduced motion is selected. `assets/profile-header.gif` combines the same frames with the vector header for GitHub README compatibility. No manual disperse or reassemble controls are required.
+
+The research and experiments sections use looping GIFs rendered from `site/satellite.js`, the same shaded 3D mesh used by the live page. Regenerate their frames with `node scripts/export_satellite.cjs` (requires `@napi-rs/canvas`), then encode the 96 PNG frames per section as looping GIFs with 100 ms frame duration. The live model retains drag, zoom, and reduced-motion controls.
