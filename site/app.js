@@ -15,28 +15,15 @@ class Surface {
   resize(){ const rect=this.canvas.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2); this.dpr=dpr; this.width=rect.width; this.height=rect.height; this.canvas.width=Math.round(rect.width*dpr); this.canvas.height=Math.round(rect.height*dpr); this.ctx.setTransform(dpr,0,0,dpr,0,0); this.ctx.imageSmoothingEnabled=false; }
   clear(){this.ctx.clearRect(0,0,this.width,this.height);}
 }
-const field=new Surface($('#field')), satellite=new Surface($('#satellite')), research=new Surface($('#research-satellite'));
-const surfaces=[field,satellite,research];
+const research=new Surface($('#research-satellite'));
+const surfaces=[research];
 if ('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const s=surfaces.find(s=>s.canvas===e.target);if(s)s.visible=e.isIntersecting;}),{rootMargin:'100px'}); surfaces.forEach(s=>observer.observe(s.canvas)); }
 
 // Use the same 3D blueprint line geometry as the animated GitHub profile exports.
 function drawSatellite(surface,angle,zoom=1,tilt=.4){Satellite3D.render(surface.ctx,surface.width,surface.height,angle,zoom,tilt);}
-let rotation=Number($('#rotation').value)*Math.PI/180,zoom=1,tilt=.35,drag=null;
-$('#rotation').addEventListener('input',e=>{rotation=Number(e.target.value)*Math.PI/180;});
-$('#zoom').addEventListener('input',e=>{zoom=Number(e.target.value)/100;});
-satellite.canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};satellite.canvas.setPointerCapture(e.pointerId);});
-satellite.canvas.addEventListener('pointermove',e=>{if(!drag)return;rotation+=(e.clientX-drag.x)*.008;tilt=clamp(tilt+(e.clientY-drag.y)*.008,-1.2,1.2);drag={x:e.clientX,y:e.clientY};rotation=((rotation+Math.PI)%(Math.PI*2)+Math.PI*2)%(Math.PI*2)-Math.PI;$('#rotation').value=rotation*180/Math.PI;});
-function release(){drag=null;}satellite.canvas.addEventListener('pointerup',release);satellite.canvas.addEventListener('pointercancel',release);satellite.canvas.addEventListener('lostpointercapture',release);
-
-let dots=[],pointer=null;
-function resetField(){dots=Array.from({length:160},(_,i)=>({x:rand(i),y:rand(i+300),homeX:rand(i),homeY:rand(i+300),vx:0,vy:0,size:2+rand(i+10)*3,opacity:.2+rand(i+20)*.75}));}
-resetField();$('#reset-field').addEventListener('click',resetField);
-field.canvas.addEventListener('pointermove',e=>{const r=field.canvas.getBoundingClientRect();pointer={x:e.clientX-r.left,y:e.clientY-r.top};});
-field.canvas.addEventListener('pointerleave',()=>{pointer=null;});field.canvas.addEventListener('pointercancel',()=>{pointer=null;});
-function drawField(time,dt){field.clear();const {ctx,width:w,height:h}=field;for(const [i,d] of dots.entries()){const tx=d.homeX*w,ty=d.homeY*h;let x=d.x*w,y=d.y*h;if(!reduced){d.vx+=(tx-x)*.0008*dt;d.vy+=(ty-y)*.0008*dt;d.vx+=Math.sin(time*.3+i)*.003*dt;d.vy+=Math.cos(time*.3+i)*.003*dt;if(pointer){const dx=x-pointer.x,dy=y-pointer.y,distance=Math.hypot(dx,dy);if(distance<75){const force=(75-distance)*.003*dt;d.vx+=dx/Math.max(1,distance)*force;d.vy+=dy/Math.max(1,distance)*force;}}d.vx*=Math.pow(.94,dt);d.vy*=Math.pow(.94,dt);x=clamp(x+d.vx*dt,0,w);y=clamp(y+d.vy*dt,0,h);d.x=x/Math.max(w,1);d.y=y/Math.max(h,1);}ctx.fillStyle=`rgba(172,203,176,${d.opacity})`;ctx.fillRect(reduced?tx:x,reduced?ty:y,d.size,d.size);}}
 let elapsed=0,previous=0;
 document.addEventListener('visibilitychange',()=>{previous=0;});
-function frame(now){const dt=previous?Math.min((now-previous)/1000,.04):0;previous=now;if(!document.hidden){if(!reduced)elapsed+=dt;if(research.visible)drawSatellite(research,reduced ? .6 : elapsed*.35+.6,.92,.4);if(!reduced&&!drag){rotation=((rotation+dt*.35+Math.PI)%(Math.PI*2))-Math.PI;$('#rotation').value=rotation*180/Math.PI;}if(satellite.visible)drawSatellite(satellite,rotation,zoom,tilt);if(field.visible)drawField(elapsed,dt*60);}requestAnimationFrame(frame);}
+function frame(now){const dt=previous?Math.min((now-previous)/1000,.04):0;previous=now;if(!document.hidden){if(!reduced)elapsed+=dt;if(research.visible)drawSatellite(research,reduced ? .6 : elapsed*.35+.6,.92,.4);}requestAnimationFrame(frame);}
 requestAnimationFrame(frame);
 
 function dayText(day){return new Date(day.date+'T12:00:00Z').toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'});}
