@@ -19,7 +19,7 @@ const field=new Surface($('#field')), satellite=new Surface($('#satellite')), re
 const surfaces=[field,satellite,research];
 if ('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const s=surfaces.find(s=>s.canvas===e.target);if(s)s.visible=e.isIntersecting;}),{rootMargin:'100px'}); surfaces.forEach(s=>observer.observe(s.canvas)); }
 
-// Use the same shaded 3D geometry as the animated GitHub profile exports.
+// Use the same 3D blueprint line geometry as the animated GitHub profile exports.
 function drawSatellite(surface,angle,zoom=1,tilt=.4){Satellite3D.render(surface.ctx,surface.width,surface.height,angle,zoom,tilt);}
 let rotation=Number($('#rotation').value)*Math.PI/180,zoom=1,tilt=.35,drag=null;
 $('#rotation').addEventListener('input',e=>{rotation=Number(e.target.value)*Math.PI/180;});
