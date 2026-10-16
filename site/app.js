@@ -3,7 +3,7 @@ const $ = selector => document.querySelector(selector);
 const preference = matchMedia('(prefers-reduced-motion: reduce)');
 let reduced = preference.matches;
 const toggle = $('#motion-toggle');
-function setMotion(value) { reduced = value; document.documentElement.classList.toggle('reduced-motion', reduced); toggle.textContent = reduced ? 'Enable motion' : 'Reduce motion'; toggle.setAttribute('aria-pressed', String(reduced)); }
+function setMotion(value) { reduced = value; document.documentElement.classList.toggle('reduced-motion', reduced); document.documentElement.classList.toggle('motion-enabled', !reduced); toggle.textContent = reduced ? 'Enable motion' : 'Reduce motion'; toggle.setAttribute('aria-pressed', String(reduced)); }
 setMotion(reduced); toggle.addEventListener('click', () => setMotion(!reduced)); preference.addEventListener('change', e => setMotion(e.matches));
 $('#copyright-year').textContent = new Date().getFullYear();
 const clamp = (value, min=0, max=1) => Math.min(max, Math.max(min, value));
@@ -15,23 +15,9 @@ class Surface {
   resize(){ const rect=this.canvas.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2); this.dpr=dpr; this.width=rect.width; this.height=rect.height; this.canvas.width=Math.round(rect.width*dpr); this.canvas.height=Math.round(rect.height*dpr); this.ctx.setTransform(dpr,0,0,dpr,0,0); this.ctx.imageSmoothingEnabled=false; }
   clear(){this.ctx.clearRect(0,0,this.width,this.height);}
 }
-const portrait=new Surface($('#portrait')), field=new Surface($('#field')), satellite=new Surface($('#satellite')), research=new Surface($('#research-satellite'));
-const surfaces=[portrait,field,satellite,research];
+const field=new Surface($('#field')), satellite=new Surface($('#satellite')), research=new Surface($('#research-satellite'));
+const surfaces=[field,satellite,research];
 if ('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const s=surfaces.find(s=>s.canvas===e.target);if(s)s.visible=e.isIntersecting;}),{rootMargin:'100px'}); surfaces.forEach(s=>observer.observe(s.canvas)); }
-const portraitImage=new Image();let portraitReady=false;
-portraitImage.onload=()=>{portraitReady=true;};portraitImage.src='portrait.webp';
-const portraitGrid=100;
-const pixels=Array.from({length:portraitGrid*portraitGrid},(_,i)=>({x:i%portraitGrid,y:Math.floor(i/portraitGrid),delay:((portraitGrid-1-i%portraitGrid)+Math.floor(i/portraitGrid))/(2*(portraitGrid-1))*.38+rand(i)*.13,dx:16+rand(i+4)*95,dy:-22-rand(i+9)*70}));
-function drawPortrait(time){
- const {ctx,width:w,height:h}=portrait;portrait.clear();if(!portraitReady)return;
- const size=Math.min(w*.9,h*.96,360),left=(w-size)/2,top=(h-size)/2,cell=size/portraitGrid;
- const t=reduced?0:time%17;let amount=0;
- if(t>6&&t<10)amount=(t-6)/4;else if(t>=10&&t<=11)amount=1;else if(t>11&&t<16)amount=1-(t-11)/5;
- if(amount===0){ctx.imageSmoothingEnabled=true;ctx.drawImage(portraitImage,left,top,size,size);ctx.imageSmoothingEnabled=false;return;}
- const sw=portraitImage.naturalWidth/portraitGrid,sh=portraitImage.naturalHeight/portraitGrid;
- for(const p of pixels){const n=clamp((amount-p.delay)/(1-p.delay)),e=smooth(n),alpha=1-smooth((n-.3)/.7);if(alpha<.005)continue;ctx.globalAlpha=alpha;const dpr=portrait.dpr||1,x=left+p.x*cell+e*p.dx,y=top+p.y*cell+e*(p.dy+Math.sin(n*6+p.x)*9),z=cell*(1-e*.45),x0=Math.round(x*dpr)/dpr,y0=Math.round(y*dpr)/dpr;ctx.drawImage(portraitImage,p.x*sw,p.y*sh,sw,sh,x0,y0,Math.round((x+z)*dpr)/dpr-x0,Math.round((y+z)*dpr)/dpr-y0);}
- ctx.globalAlpha=1;
-}
 
 // Perspective projection, with depth-sorted body faces and fine solar-panel grids.
 function drawSatellite(surface,angle,zoom=1,tilt=.35){
@@ -59,7 +45,7 @@ field.canvas.addEventListener('pointerleave',()=>{pointer=null;});field.canvas.a
 function drawField(time,dt){field.clear();const {ctx,width:w,height:h}=field;for(const [i,d] of dots.entries()){const tx=d.homeX*w,ty=d.homeY*h;let x=d.x*w,y=d.y*h;if(!reduced){d.vx+=(tx-x)*.0008*dt;d.vy+=(ty-y)*.0008*dt;d.vx+=Math.sin(time*.3+i)*.003*dt;d.vy+=Math.cos(time*.3+i)*.003*dt;if(pointer){const dx=x-pointer.x,dy=y-pointer.y,distance=Math.hypot(dx,dy);if(distance<75){const force=(75-distance)*.003*dt;d.vx+=dx/Math.max(1,distance)*force;d.vy+=dy/Math.max(1,distance)*force;}}d.vx*=Math.pow(.94,dt);d.vy*=Math.pow(.94,dt);x=clamp(x+d.vx*dt,0,w);y=clamp(y+d.vy*dt,0,h);d.x=x/Math.max(w,1);d.y=y/Math.max(h,1);}ctx.fillStyle=`rgba(172,203,176,${d.opacity})`;ctx.fillRect(reduced?tx:x,reduced?ty:y,d.size,d.size);}}
 let elapsed=0,previous=0;
 document.addEventListener('visibilitychange',()=>{previous=0;});
-function frame(now){const dt=previous?Math.min((now-previous)/1000,.04):0;previous=now;if(!document.hidden){if(!reduced)elapsed+=dt;if(portrait.visible)drawPortrait(elapsed);if(research.visible)drawSatellite(research,reduced ? .6 : elapsed*.11+.6,.92,.4);if(!reduced&&!drag){rotation=((rotation+dt*.12+Math.PI)%(Math.PI*2))-Math.PI;$('#rotation').value=rotation*180/Math.PI;}if(satellite.visible)drawSatellite(satellite,rotation,zoom,tilt);if(field.visible)drawField(elapsed,dt*60);}requestAnimationFrame(frame);}
+function frame(now){const dt=previous?Math.min((now-previous)/1000,.04):0;previous=now;if(!document.hidden){if(!reduced)elapsed+=dt;if(research.visible)drawSatellite(research,reduced ? .6 : elapsed*.11+.6,.92,.4);if(!reduced&&!drag){rotation=((rotation+dt*.12+Math.PI)%(Math.PI*2))-Math.PI;$('#rotation').value=rotation*180/Math.PI;}if(satellite.visible)drawSatellite(satellite,rotation,zoom,tilt);if(field.visible)drawField(elapsed,dt*60);}requestAnimationFrame(frame);}
 requestAnimationFrame(frame);
 
 function dayText(day){return new Date(day.date+'T12:00:00Z').toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'});}

@@ -5,7 +5,7 @@ A small dependency-free HTML/CSS/JavaScript page that accompanies the GitHub pro
 ## Files
 
 - `site/`: deployable website.
-- `assets/profile-*.svg`: designed GitHub README sections, including the automatic portrait animation.
+- `assets/profile-*.svg`: designed GitHub README sections, with `assets/profile-header.gif` providing the approved continuous portrait animation.
 - `scripts/build_profile_assets.py`: rebuilds the designed README sections from the checked-in portrait and activity data.
 - `scripts/refresh_activity.py`: refreshes the last three years of the public GitHub contribution calendar without a token.
 - `.github/workflows/pages.yml`: verifies, refreshes, and deploys the site on pushes, manually, and daily.
@@ -49,3 +49,7 @@ node --test tests/calendar.test.cjs
 ```
 
 The research description reflects the current Satellite Repair Lab README. It deliberately makes no claim of a published paper, flight qualification, or evaluated AI-generated repairs.
+
+## Approved contribution portrait
+
+`site/portrait-loop.gif` is the original approved 96-frame, 640×640 animation. The page shows it directly, with a still frame when reduced motion is selected. `assets/profile-header.gif` combines the same frames with the vector header for GitHub README compatibility. No manual disperse or reassemble controls are required.
