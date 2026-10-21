@@ -81,3 +81,26 @@ for i in range(N):
 out=root/"assets/profile-research-animated.gif"
 frames[0].save(out,save_all=True,append_images=frames[1:],duration=90,loop=0,optimize=True,disposal=2)
 print("Generated",out,out.stat().st_size,"bytes",len(frames),"frames")
+
+
+# Satellite-only artwork. The research heading, copy, badges and links are real README elements.
+# A 700x440 viewBox isolates the spacecraft and removes the old full-banner text.
+isolated=[]
+for i in range(N):
+    t=i/N
+    a=2*math.pi*t
+    x=1200+280*math.cos(a)
+    y=294+115*math.sin(a)
+    scene=f'''<svg xmlns="http://www.w3.org/2000/svg" width="700" height="440" viewBox="850 85 700 440">
+    <rect x="850" y="85" width="700" height="440" fill="#0d1117"/>
+    <ellipse cx="1200" cy="294" rx="305" ry="128" fill="none" stroke="#344b51" stroke-width="1" stroke-dasharray="7 8"/>
+    <ellipse cx="1200" cy="294" rx="260" ry="150" transform="rotate(-17 1200 294)" fill="none" stroke="#26393e" stroke-width="1"/>
+    <path d="M1200 90 V517 M867 294 H1535" stroke="#2c3c42" stroke-width=".7" stroke-dasharray="5 12"/>
+    {satellite(t)}
+    <circle cx="{x:.2f}" cy="{y:.2f}" r="5" fill="#9cdcb5"/>
+    </svg>'''
+    im=Image.open(io.BytesIO(cairosvg.svg2png(bytestring=scene.encode(),output_width=560,output_height=352))).convert("RGB")
+    isolated.append(im.quantize(colors=128,method=Image.Quantize.FASTOCTREE))
+satout=root/"assets/research-satellite-only.gif"
+isolated[0].save(satout,save_all=True,append_images=isolated[1:],duration=90,loop=0,optimize=True,disposal=2)
+print("Generated isolated satellite",satout,satout.stat().st_size)
