@@ -13,7 +13,7 @@
 <rect width="1600" height="580" rx="18" fill="url(#dots)"/><ellipse cx="1200" cy="300" rx="500" ry="335" fill="url(#glow)"/>
 <g class="t">
 <text x="72" y="72" font-size="17" fill="#c0c9d0" letter-spacing="3">///  RESEARCH</text>
-<path d="M275 65H620" stroke="#46535b" stroke-width="1"/><circle cx="644" cy="65" r="5" fill="#86c69b"/><text x="662" y="72" font-size="16" letter-spacing="2" fill="#91cba7">ONGOING</text>
+<path d="M275 65H620" stroke="#46535b" stroke-width="1"/><circle cx="644" cy="65" r="5" fill="#86c69b"><animate attributeName="opacity" values=".3;1;.3" dur="1.5s" repeatCount="indefinite"/><animate attributeName="r" values="4;7;4" dur="1.5s" repeatCount="indefinite"/></circle><text x="662" y="72" font-size="16" letter-spacing="2" fill="#91cba7">ONGOING</text>
 <text x="72" y="154" font-weight="700" font-size="49" fill="#f1f4f5">Autonomous Software Repair</text>
 <text x="72" y="212" font-weight="700" font-size="49" fill="#f1f4f5">for Space Systems</text>
 <text x="72" y="269" font-size="22" class="muted">Exploring how spacecraft software can identify, validate,</text>
@@ -29,7 +29,7 @@
 <g transform="translate(40 0)">
 <ellipse class="fine orbit" cx="1160" cy="298" rx="320" ry="143" transform="rotate(15 1160 298)"/><ellipse class="fine" cx="1160" cy="298" rx="240" ry="102" transform="rotate(-23 1160 298)"/>
 <path class="fine" d="M1150 76V501M870 300H1490"/><path class="fine" d="M867 169v-24m-12 12h24M1487 417v-26m-13 13h26"/>
-<g class="sat">
+<g class="sat"><animateTransform attributeName="transform" type="translate" values="0 0;0 -15;0 0;0 10;0 0" dur="6s" repeatCount="indefinite" additive="sum"/>
 <!-- left solar array -->
 <polygon points="965,191 1091,244 1091,396 965,346" fill="#111a20" fill-opacity=".65" class="line"/>
 <g class="grid"><path d="M991 202V356M1017 213V367M1043 224V377M1069 235V389M965 221L1091 273M965 252L1091 304M965 283L1091 335M965 314L1091 366"/></g>
@@ -47,7 +47,9 @@
 <path d="M1171 213V149" stroke="#d0d8d8" stroke-width="2"/><ellipse cx="1171" cy="149" rx="56" ry="18" class="line"/><path d="M1115 149Q1171 203 1227 149M1171 130V97M1140 137l31 44 31-44" class="fine"/>
 <circle cx="1171" cy="98" r="3" fill="#cad6d5"/>
 </g>
-<circle cx="870" cy="312" r="4" fill="#96a9af"/><circle cx="1482" cy="270" r="4" fill="#96a9af"/>
+<circle r="7" fill="#9ee9b5"><animateMotion dur="6s" repeatCount="indefinite" path="M 870 312 C 920 90,1370 88,1482 270 S 1330 520,1060 450 S 790 355,870 312 Z"/><animate attributeName="opacity" values=".2;1;.2" dur="2s" repeatCount="indefinite"/></circle>
+<circle r="4" fill="#e2fff0"><animateMotion dur="6s" begin="-3s" repeatCount="indefinite" path="M 870 312 C 920 90,1370 88,1482 270 S 1330 520,1060 450 S 790 355,870 312 Z"/></circle>
+<path d="M890 310H1490" stroke="#91dcb0" stroke-width="2" opacity=".05"><animate attributeName="opacity" values=".02;.35;.02" dur="3s" repeatCount="indefinite"/><animate attributeName="stroke-dasharray" values="0 600;120 480;0 600" dur="3s" repeatCount="indefinite"/></path><circle cx="1482" cy="270" r="4" fill="#96a9af"/>
 <g class="t" fill="#637079" font-size="12" letter-spacing="1"><text x="1365" y="117">AUTONOMOUS / SYSTEMS</text><text x="1365" y="136">RESEARCH PROTOTYPE</text><text x="1365" y="155">STATUS: EXPERIMENTAL</text></g>
 <path d="M1343 106h-14v60" class="fine"/>
 </g>
