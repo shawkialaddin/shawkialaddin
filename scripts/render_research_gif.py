@@ -6,7 +6,7 @@ from PIL import Image
 root=Path(__file__).resolve().parents[1]
 source=(root/"assets/profile-research-autonomous.svg").read_text()
 # Remove the original flat satellite group, retaining the rest of the layout.
-source=re.sub(r'<g class="sat">.*?</g>', '<!-- SATELLITE_REPLACEMENT -->', source, count=1, flags=re.S)
+source=re.sub(r'<g class="sat">.*?(?=<circle cx="870")', '<!-- SATELLITE_REPLACEMENT -->', source, count=1, flags=re.S)
 # Avoid reliance on font-dependent symbols, which previously rendered as squares.
 source=source.replace('〈/〉 Candidate Repair','Candidate Repair').replace('◇ Independent Validation','Independent Validation').replace('▥ Controlled Activation','Controlled Activation').replace('Satellite Repair Lab ↗','Satellite Repair Lab >')
 # Ensure the detailed satellite artwork sits in the same coordinate space as the guide lines.
